@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BBC latest -news</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+
+  <body>
+
+    <div class="container">
+            <div id="news_div"></div>      
+    </div>
+	<br><br>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+$("#news_div").html("<img src='https://www.w3schools.com/jquery/demo_wait.gif'> Loading...");
+var news_str = "";
+$.ajax({
+ url:'https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=92638b5c190a49319ed6e391cff00cfb',
+    }).done(function(data){
+    for(var i=0;i<data.articles.length;i++){
+			news_str = news_str +  `<div style="padding:10px;">
+										<div style="display:inline-block;">
+										<img style="max-width:200px; max-height:180px;position:relative;top:-15px;display:inline-block;" src="${data.articles[i].urlToImage}">
+										</div>
+										<div style="display:inline-block; padding-top:4px;">
+										<p style="background:#fff; padding:10px;">
+											<a href="${data.articles[i].url}" target="_blank" style="position:relative;top:10px;padding:4px;left:-14px;>
+												<h3 class="panel-title">Title: ${data.articles[i].title}</h3>
+											</a>
+										</p>
+										<h3 class="panel-title">Author: ${data.articles[i].author}</h3> 
+										<h3 class="panel-title">Description: ${data.articles[i].description}</h3>
+										<h3 class="panel-title" style="font-size:11px; color:#ccc;">Published At: ${data.articles[i].publishedAt}</h3>
+										</div>
+									</div>`;
+			}//for loop		
+			$('#news_div').html(news_str);			
+      });    
+    });
+     </script>
+  </body>
+</html>
