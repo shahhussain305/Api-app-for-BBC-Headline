@@ -42,9 +42,7 @@ https://youtu.be/B4xexNiD6jE
 
     </div><!-- /.container -->
 
-    <script
-  src="https://code.jquery.com/jquery-3.1.1.js"
-  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
   crossorigin="anonymous"></script>
   
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -55,9 +53,7 @@ $(document).ready(function(){
 //var num=e.target.value;
 //console.log(num);
 $.ajax({
-
- url:'https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=92638b5c190a49319ed6e391cff00cfb',
-
+     url:'https://newsapi.org/v1/articles?source=bbc-news&sortBy=top&apiKey=92638b5c190a49319ed6e391cff00cfb',
     }).done(function(data){
        console.log(data);
     for(var i=0;i<data.articles.length;i++){
@@ -72,8 +68,6 @@ $.ajax({
             <h3 class="panel-title">Description:${data.articles[i].description}</h3>
              <br/>
            `);
-
-
        }
       });    
      
