@@ -60,14 +60,11 @@ $.ajax({
        $('#profile1').append(`
           <p> <img src="${data.articles[i].urlToImage}"></p>
            <br/>
-           <a href="http://www.bbc.com/news/world" <h3 class="panel-title">Title:${data.articles[i].title}</h3></a>
-            
+           <a href="http://www.bbc.com/news/world" <h3 class="panel-title">Title:${data.articles[i].title}</h3></a>            
             <br/>
-            <h3 class="panel-title">Author:${data.articles[i].author}</h3>
-             
+            <h3 class="panel-title">Author:${data.articles[i].author}</h3>             
             <h3 class="panel-title">Description:${data.articles[i].description}</h3>
-             <br/>
-           `);
+             <br/>`);
        }
       });    
      
